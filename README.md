@@ -1,3 +1,3 @@
-#Self Taught TypeScript
+# Self Taught TypeScript
 
 
