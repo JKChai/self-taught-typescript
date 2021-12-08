@@ -19,5 +19,6 @@
   "homepage": "https://github.com/JKChai/self-taught-typescript#readme",
   "devDependencies": {
     "lite-server": "^2.6.1"
-  }
+  },
+  "packageManager": "yarn@3.1.1"
 }
