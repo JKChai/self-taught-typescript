@@ -95,27 +95,21 @@ These are not found in JavaScript
 | Enum | enum {new, old} | automatically enumerated global constants identifier |
 | any | * | no specific type assignments | 
 
-Use operator `|` for combining type, union type, e.g., `input: string | number` which means that input variable/argument can be a string or number type
-
-`type` is a TypeScript keyword for assigning data types to a variable known as type alias that can later declare to each variable
-
-`+` operator is a prefer way for converting any values referenced to a variable to a number type by assigning it before the variable, e.g., `+var` convert `var` into number
-
-TypeScript has a `void` type that JavaScript does not have for result of function that do not return any values
+* Use operator `|` for combining type, union type, e.g., `input: string | number` which means that input variable/argument can be a string or number type
+* `type` is a TypeScript keyword for assigning data types to a variable known as type alias that can later declare to each variable
+* `+` operator is a prefer way for converting any values referenced to a variable to a number type by assigning it before the variable, e.g., `+var` convert `var` into number
+* TypeScript has a `void` type that JavaScript does not have for result of function that do not return any values
 ```TS
 function printResult(num: number): void {
   console.log('Result: ' + num)
 }
 ```
-
-`undefined` is a type in TypeScript but no common; it is use when the return values in a function or variables does not contain any data
-
-Another type, called `Function` type is use for declaring a function for a variable
+* `undefined` is a type in TypeScript but no common; it is use when the return values in a function or variables does not contain any data
+* Another type, called `Function` type is use for declaring a function for a variable
 ```TS
 let thisIsFunction: Function;
 ```
-
-This help to declare the function early on before using it; however, a more common way of declaring a function is using anonymous function with arrow function
+  * This help to declare the function early on before using it; however, a more common way of declaring a function is using anonymous function with arrow function
 ```TS
 // without parameters
 let thisIsFunction: () => number;
@@ -123,8 +117,7 @@ let thisIsFunction: () => number;
 // with parameters
 let thisIsFunction: (arg1: number, arg2: string) => number;
 ```
-
-Callback function is a very common function used in JavaScript & TypeScript. It is a function that act as a parameter for another function, which makes that function a higher-order function. In TypeScript, callback function allows to omit assigning type for the parameter because the type is assigned in the higher-order function that take callback. Note that callback is usually used to continue code execution after an asynchronous operations has completed - asynchronous function
+* Callback function is a very common function used in JavaScript & TypeScript. It is a function that act as a parameter for another function, which makes that function a higher-order function. In TypeScript, callback function allows to omit assigning type for the parameter because the type is assigned in the higher-order function that take callback. Note that callback is usually used to continue code execution after an asynchronous operations has completed - asynchronous function
 ```TS
 function higherOrderFunction(arg1: number, arg2: number, callback: (arg1: number) => void) {
   const result = +arg1 + +arg2;
@@ -136,6 +129,23 @@ higherOrderFunction(10, 20, (result) => {
   console.log(result);
 });
 ```
+* `unknown` type is similar to `any` type but more restrictive, i.e., flexible but have some type checking; e.g., declaring a variable with `unknown` cannot be assigned to another variable that was set with more restrictive type such as `string`; however, using if statment to check the variable type of `unknown` before assigning to a more restrictive type will work
+```TS
+let userInput: unknown;
+let userName: string;
 
+userInput = 5;
+userInput = 'Max';
+if (typeof userInput === 'string') {
+  userName = userInput;
+}
+``` 
+* `never` type is used when the function does not return anything and is usually used it with infinite loop or `throw` 
 
+# TypeScript configuration
 
+* Use `tsc --init` to initialize the `tsconfig.json` which is used for compiling
+* Use `tsc --watch` or `tsc -w` to watch all typescript files, i.e., the scripts are compiled when saved
+* Some common configuration keywords are `exclude` that exclude all files and directories specified; `include` that include specific files and directories specified; `files` to specified files to compile
+* Use `ctrl + space` for auto-completion in VSC
+* 
