@@ -11,12 +11,7 @@
 // }
 enum Role { ADMIN, READ_ONLY, AUTHOR, }
 
-const person: {
-    name: string;
-    age: number;
-    hobbies: string[];
-    role: [number, string];
-} = {
+const person = {
     name: "Maximillian",
     age: 30,
     hobbies: ['sports', 'Cooking'],
