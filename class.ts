@@ -1,3 +1,5 @@
+// Overriding the base class
+// 
 // parent
 class Base {
   greet() {
@@ -20,6 +22,7 @@ const d = new Derived();
 d.greet();
 d.greet("reader");
 
+// legal to reference derived class instance using a base class as reference
 // Alias the derived instance through a base class reference
 const b: Base = d;
 // No problem
